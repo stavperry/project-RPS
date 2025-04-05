@@ -39,13 +39,35 @@ function playRound(humanChoice, computerChoice) {
             console.log("You win! " + humanChoice + " beats " + computerChoice + "!");
     } else {
         computerScore++;
-        console.log("You lose! " + humanChoice + " beats " + computerChoice + "!");
+        console.log("You lose! " + computerChoice + " beats " + humanChoice + "!");
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// console.log(playRound);
 
-playRound(humanSelection, computerSelection);
+function playGame() {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    if (humanScore > computerScore) {
+        console.log("Congrats! You win!");
+    } else if (humanScore < computerScore) {
+        console.log("Sorry, computer wins...");
+    } else {
+        console.log("You both are too good, it's a tie!")
+    }
+}
 
-console.log(playRound);
+playGame();
